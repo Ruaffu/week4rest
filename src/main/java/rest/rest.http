@@ -1,0 +1,40 @@
+GET http://localhost:8080/devops_starter_war_exploded/api/person/2
+
+###
+
+POST http://localhost:8080/devops_starter_war_exploded/api/person
+Content-Type: application/json
+
+{
+  "firstName": "Nina",
+  "lastName": "Simone",
+  "phone": "123456789"
+}
+
+
+###
+PUT http://localhost:8080/devops_starter_war_exploded/api/person/edit/2
+Content-Type: application/json
+
+{
+  "phone": "555-8972-QUEEN"
+}
+
+###
+POST http://localhost:8080/devops_starter_war_exploded/api/person
+Content-Type: application/json
+
+{
+  "firstName": "del",
+  "lastName": "ete",
+  "phone": "meeeeeeeee"
+}
+
+###
+DELETE http://localhost:8080/devops_starter_war_exploded/api/person/delete/5
+
+###
+GET http://localhost:8080/devops_starter_war_exploded/api/person/5
+
+###
+DELETE http://localhost:8080/devops_starter_war_exploded/api/person/delete/5
