@@ -3,6 +3,7 @@ package facades;
 import dtos.PersonDTO;
 import entities.Person;
 import entities.RenameMe;
+import errorhandling.MissingInputException;
 import errorhandling.PersonNotFoundException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -68,7 +69,7 @@ class PersonFacadeTest
     }
 
     @Test
-    void testAddPerson()
+    void testAddPerson() throws MissingInputException
     {
         facade.addPerson("test", "testy","12345");
         int expected = 3;
@@ -77,7 +78,7 @@ class PersonFacadeTest
     }
 
     @Test
-    void testEditPerson()throws PersonNotFoundException
+    void testEditPerson()throws PersonNotFoundException, MissingInputException
     {
         PersonDTO personDTO = new PersonDTO(new Person("MCBO", "Pete", "12345"));
         personDTO.setId(1);

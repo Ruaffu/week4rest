@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dtos.PersonDTO;
 import dtos.PersonsDTO;
+import errorhandling.MissingInputException;
 import errorhandling.PersonNotFoundException;
 import facades.FacadeExample;
 import facades.PersonFacade;
@@ -40,7 +41,7 @@ public class PersonResource
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addPerson(String info){
+    public Response addPerson(String info) throws MissingInputException{
         PersonDTO personDTO = GSON.fromJson(info, PersonDTO.class);
         PersonDTO latestPDTO = FACADE.addPerson(personDTO.getFirstName(), personDTO.getLastName(), personDTO.getPhone());
         return Response.ok().entity(GSON.toJson(latestPDTO)).build();
@@ -51,7 +52,7 @@ public class PersonResource
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response editPerson(@PathParam("id")int id, String info) throws PersonNotFoundException
+    public Response editPerson(@PathParam("id")int id, String info) throws PersonNotFoundException, MissingInputException
     {
         PersonDTO personDTO = GSON.fromJson(info, PersonDTO.class);
         personDTO.setId(id);
