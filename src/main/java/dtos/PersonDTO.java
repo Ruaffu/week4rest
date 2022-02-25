@@ -12,6 +12,9 @@ public class PersonDTO
     private String firstName;
     private String lastName;
     private String phone;
+    private String street;
+    private String zip;
+    private String city;
 
     public PersonDTO(String firstName, String lastName, String phone)
     {
@@ -29,6 +32,16 @@ public class PersonDTO
         this.phone = person.getPhone();
 
 
+    }
+
+    public PersonDTO(String firstName, String lastName, String phone, String street, String zip, String city)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.street = street;
+        this.zip = zip;
+        this.city = city;
     }
 
     public static List<PersonDTO> getDTOs(List<Person> personList){
@@ -50,6 +63,36 @@ public class PersonDTO
     public int hashCode()
     {
         return Objects.hash(id, firstName, lastName, phone);
+    }
+
+    public String getStreet()
+    {
+        return street;
+    }
+
+    public void setStreet(String street)
+    {
+        this.street = street;
+    }
+
+    public String getZip()
+    {
+        return zip;
+    }
+
+    public void setZip(String zip)
+    {
+        this.zip = zip;
+    }
+
+    public String getCity()
+    {
+        return city;
+    }
+
+    public void setCity(String city)
+    {
+        this.city = city;
     }
 
     public int getId()

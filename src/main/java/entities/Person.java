@@ -16,6 +16,10 @@ public class Person
     private Date created;
     private Date lastEdited;
 
+    @OneToOne
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
     public Person()
     {
     }
