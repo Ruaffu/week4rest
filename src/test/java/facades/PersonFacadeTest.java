@@ -35,7 +35,7 @@ class PersonFacadeTest
             em.getTransaction().begin();
             em.createNamedQuery("Person.deleteAllRows").executeUpdate();
             p1 = new Person("mc","Pete","1231415");
-            p2 = (new Person("mc","Mo","956547456"));
+            p2 = new Person("mc","Mo","956547456");
             em.persist(p1);
             em.persist(p2);
 
