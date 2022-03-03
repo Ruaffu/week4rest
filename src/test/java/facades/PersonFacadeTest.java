@@ -76,23 +76,23 @@ class PersonFacadeTest
         assertEquals(expected, actual);
     }
 
-    @Test
-    void testEditPerson()throws PersonNotFoundException
-    {
-        PersonDTO personDTO = new PersonDTO(new Person("MCBO", "Pete", "12345"));
-        personDTO.setId(1);
-        facade.editPerson(personDTO);
-        String expected = personDTO.getFirstName();
-        String actual = facade.getPerson(1).getFirstName();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void testDeletePerson() throws PersonNotFoundException
-    {
-        facade.deletePerson(2);
-        int expected = 1;
-        int actual = facade.getAllPersons().getAll().size();
-        assertEquals(expected, actual);
-    }
+//    @Test
+//    void testEditPerson()throws PersonNotFoundException
+//    {
+//        PersonDTO personDTO = new PersonDTO(new Person("MCBO", "Pete", "12345"));
+//        personDTO.setId(1);
+//        facade.editPerson(personDTO);
+//        String expected = personDTO.getFirstName();
+//        String actual = facade.getPerson(1).getFirstName();
+//        assertEquals(expected, actual);
+//    }
+//
+//    @Test
+//    void testDeletePerson() throws PersonNotFoundException
+//    {
+//        facade.deletePerson(2);
+//        int expected = 1;
+//        int actual = facade.getAllPersons().getAll().size();
+//        assertEquals(expected, actual);
+//    }
 }
