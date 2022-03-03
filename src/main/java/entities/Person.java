@@ -16,7 +16,7 @@ public class Person
     private Date created;
     private Date lastEdited;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
@@ -91,5 +91,16 @@ public class Person
     public void setLastEdited(Date lastEdited)
     {
         this.lastEdited = lastEdited;
+    }
+
+    public Address getAddress()
+    {
+        return address;
+    }
+
+    public void setAddress(Address address)
+    {
+        this.address = address;
+        address.addPerson(this);
     }
 }

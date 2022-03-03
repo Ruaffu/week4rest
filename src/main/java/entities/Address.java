@@ -1,6 +1,8 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Address
@@ -12,8 +14,8 @@ public class Address
     private String zip;
     private String city;
 
-    @OneToOne(mappedBy = "address")
-    private Person person;
+    @OneToMany(mappedBy = "address", cascade = CascadeType.PERSIST)
+    private Set<Person> persons = new HashSet<>();
 
     public Address()
     {
@@ -64,5 +66,15 @@ public class Address
     public void setCity(String city)
     {
         this.city = city;
+    }
+
+    public Set<Person> getPersons()
+    {
+        return persons;
+    }
+
+    public void addPerson(Person person)
+    {
+        this.persons.add(person);
     }
 }

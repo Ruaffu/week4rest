@@ -2,6 +2,7 @@ package facades;
 
 import dtos.PersonDTO;
 import dtos.PersonsDTO;
+import entities.Address;
 import entities.Person;
 import errorhandling.PersonNotFoundException;
 
@@ -124,5 +125,18 @@ public class PersonFacade implements IPersonFacade
             em.close();
         }
         return p;
+    }
+
+    public void addAddress(Address address){
+        EntityManager em = getEntityManager();
+        try
+        {
+            em.getTransaction().begin();
+            em.persist(address);
+            em.getTransaction().commit();
+        }finally
+        {
+            em.close();
+        }
     }
 }

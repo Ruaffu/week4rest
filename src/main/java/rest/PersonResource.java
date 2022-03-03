@@ -61,7 +61,7 @@ public class PersonResource
     }
 
     @DELETE
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deletePerson(@PathParam("id")int id) throws PersonNotFoundException{
         PersonDTO deletedPDTO = FACADE.deletePerson(id);
